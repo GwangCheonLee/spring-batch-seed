@@ -17,11 +17,11 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = "com.example.springbatch",
+        basePackages = "com.example.springbatch.common",
         entityManagerFactoryRef = "batchEntityManagerFactory",
         transactionManagerRef = "batchTransactionManager"
 )
-public class DataSourceConfig {
+public class PrimaryDataSourceConfig {
 
     @Value("${spring.datasource.batch.url}")
     private String batchDbUrl;
@@ -53,7 +53,7 @@ public class DataSourceConfig {
             @Qualifier("batchDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.example.springbatch.batch.entities")
+                .packages("com.example.springbatch.common.entities")
                 .persistenceUnit("batch")
                 .build();
     }

@@ -1,6 +1,6 @@
-package com.example.springbatch.quartz.mattermost.config;
+package com.example.springbatch.mattermost.config;
 
-import com.example.springbatch.quartz.mattermost.job.QuartzMattermostWeeklyReportingJob;
+import com.example.springbatch.mattermost.job.QuartzMattermostWeeklyReportingJob;
 import org.quartz.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

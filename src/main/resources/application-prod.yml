@@ -9,11 +9,11 @@ spring:
       password: ${BATCH_DATABASE_PASSWORD}
       driver-class-name: ${BATCH_DATABASE_DRIVER}
 
-    another:
-      url: ${ANOTHER_DATABASE_URL}
-      username: ${ANOTHER_DATABASE_USERNAME}
-      password: ${ANOTHER_DATABASE_PASSWORD}
-      driver-class-name: ${ANOTHER_DATABASE_DRIVER}
+    band:
+      url: ${BAND_DATABASE_URL}
+      username: ${BAND_DATABASE_USERNAME}
+      password: ${BAND_DATABASE_PASSWORD}
+      driver-class-name: ${BAND_DATABASE_DRIVER}
 
   quartz:
     job-store-type: jdbc

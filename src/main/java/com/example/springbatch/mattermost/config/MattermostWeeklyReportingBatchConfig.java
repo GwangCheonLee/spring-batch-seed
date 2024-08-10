@@ -1,4 +1,4 @@
-package com.example.springbatch.batch.mattermost.config;
+package com.example.springbatch.mattermost.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;

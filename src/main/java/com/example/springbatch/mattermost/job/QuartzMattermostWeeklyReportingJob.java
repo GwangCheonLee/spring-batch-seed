@@ -1,4 +1,4 @@
-package com.example.springbatch.quartz.mattermost.job;
+package com.example.springbatch.mattermost.job;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
