@@ -1,0 +1,33 @@
+spring:
+  config:
+    import: optional:file:env/.env.prod[.properties]
+
+  datasource:
+    batch:
+      url: ${BATCH_DATABASE_URL}
+      username: ${BATCH_DATABASE_USERNAME}
+      password: ${BATCH_DATABASE_PASSWORD}
+      driver-class-name: ${BATCH_DATABASE_DRIVER}
+
+    another:
+      url: ${ANOTHER_DATABASE_URL}
+      username: ${ANOTHER_DATABASE_USERNAME}
+      password: ${ANOTHER_DATABASE_PASSWORD}
+      driver-class-name: ${ANOTHER_DATABASE_DRIVER}
+
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    properties:
+      org:
+        quartz:
+          jobStore:
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+            useProperties: false
+
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
