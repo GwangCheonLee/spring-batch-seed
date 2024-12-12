@@ -4,7 +4,7 @@ spring:
       enabled: true
 
   config:
-    import: optional:file:env/.env.local[.properties]
+    import: optional:file:env/.env.dev[.properties]
 
   batch:
     job:
