@@ -71,7 +71,8 @@ public class SimpleChunkJobConfig {
      *
      * @return Step 객체
      */
-    private Step simpleChunkStep() {
+    @Bean
+    public Step simpleChunkStep() {
         return new StepBuilder(STEP_NAME, jobRepository)
             .<Another, Another>chunk(chunkSize, transactionManager)
             .reader(anotherReader())

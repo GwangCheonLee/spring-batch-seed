@@ -63,7 +63,8 @@ public class SimpleTaskletJobConfig {
      *
      * @return Step 객체
      */
-    private Step simpleTaskletStep() {
+    @Bean
+    public Step simpleTaskletStep() {
         return new StepBuilder(STEP_NAME, jobRepository)
             .tasklet(anotherTasklet(), transactionManager)
             .build();
