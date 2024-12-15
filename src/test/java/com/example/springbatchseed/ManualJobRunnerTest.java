@@ -1,0 +1,35 @@
+package com.example.springbatchseed;
+
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+
+@SpringBootTest
+@ActiveProfiles("test")
+class ManualJobRunnerTest {
+
+    @Test
+    void testManualJobRunner() throws Exception {
+        // Mock dependencies
+        Job simpleChunkJob = mock(Job.class);
+        Job simpleTaskletJob = mock(Job.class);
+        JobLauncher jobLauncher = mock(JobLauncher.class);
+
+        // Run ManualJobRunner
+        ManualJobRunner manualJobRunner = new ManualJobRunner(simpleChunkJob, simpleTaskletJob,
+            jobLauncher);
+        manualJobRunner.run();
+
+        // Verify jobs are launched
+        verify(jobLauncher, times(1)).run(eq(simpleChunkJob), any());
+        verify(jobLauncher, times(1)).run(eq(simpleTaskletJob), any());
+    }
+}
