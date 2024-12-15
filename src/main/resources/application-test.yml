@@ -1,8 +1,4 @@
 spring:
-  devtools:
-    livereload:
-      enabled: true
-
   config:
     import: optional:file:env/.env.test[.properties]
 

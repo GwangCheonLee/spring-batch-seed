@@ -52,6 +52,7 @@ dependencies {
     testImplementation 'org.projectlombok:lombok'
 
     // Test
+    testImplementation 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.batch:spring-batch-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
