@@ -60,7 +60,7 @@ public class AnotherDataSourceConfig {
         @Qualifier("anotherDataSource") DataSource dataSource) {
 
         Map<String, Object> jpaProperties = new HashMap<>();
-        jpaProperties.put("hibernate.hbm2ddl.auto", "validate");
+        jpaProperties.put("hibernate.hbm2ddl.auto", properties.getHbm2ddlAuto());
 
         return builder
             .dataSource(dataSource)

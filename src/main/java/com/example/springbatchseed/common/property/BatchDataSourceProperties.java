@@ -27,4 +27,7 @@ public class BatchDataSourceProperties {
 
     @NotBlank(message = "BATCH_DATABASE_DRIVER must not be blank")
     private String driverClassName;
+
+    // hbm2ddl-auto: 기본값을 validate로 설정
+    private String hbm2ddlAuto = "validate";
 }

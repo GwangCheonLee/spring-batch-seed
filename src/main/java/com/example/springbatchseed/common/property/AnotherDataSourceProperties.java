@@ -26,4 +26,7 @@ public class AnotherDataSourceProperties {
 
     @NotBlank(message = "ANOTHER_DATABASE_DRIVER must not be blank")
     private String driverClassName;
+
+    // hbm2ddl-auto: 기본값을 validate로 설정
+    private String hbm2ddlAuto = "validate";
 }
