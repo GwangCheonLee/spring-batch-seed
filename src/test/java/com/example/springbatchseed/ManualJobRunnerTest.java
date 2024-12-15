@@ -9,11 +9,7 @@ import static org.mockito.Mockito.verify;
 import org.junit.jupiter.api.Test;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.launch.JobLauncher;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest
-@ActiveProfiles("test")
 class ManualJobRunnerTest {
 
     @Test
@@ -23,12 +19,14 @@ class ManualJobRunnerTest {
         Job simpleTaskletJob = mock(Job.class);
         JobLauncher jobLauncher = mock(JobLauncher.class);
 
-        // Run ManualJobRunner
+        // Create ManualJobRunner with mocked dependencies
         ManualJobRunner manualJobRunner = new ManualJobRunner(simpleChunkJob, simpleTaskletJob,
             jobLauncher);
+
+        // Execute the method to be tested
         manualJobRunner.run();
 
-        // Verify jobs are launched
+        // Verify that the jobs are launched
         verify(jobLauncher, times(1)).run(eq(simpleChunkJob), any());
         verify(jobLauncher, times(1)).run(eq(simpleTaskletJob), any());
     }
