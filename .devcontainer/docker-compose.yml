@@ -1,0 +1,29 @@
+version: '3.8'
+
+volumes:
+  postgres-data:
+
+services:
+  app:
+    container_name: javadev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_HOSTNAME: postgresdb
+    command: sleep infinity
+    network_mode: service:db
+
+  db:
+    container_name: postgresdb
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
